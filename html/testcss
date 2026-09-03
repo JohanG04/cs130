@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<style>
+    body{
+        background-color: aliceblue;
+    }
+    h1{
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    table{
+        text-align: center;
+        border-collapse: collapse;
+        width: 100%;
+    }
+    td,th{
+        border: 1px solid black;
+    }
+</style>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <header>
+            <title>CSS Practice</title>
+        </header>
+    </head>
+    
+    <h2>Header 2 using default font</h2>
+    <h1>Header 1 using CSS font Helvetica</h1>
+
+    <table>
+        <thead>
+            <th>col 1</th>
+            <th>col 2</th>
+            <th>col 3</th>
+        </thead>
+    </table>
+
+</html>

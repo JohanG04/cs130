@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<style>
+    table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    }
+    td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    }
+    tr:nth-child(even) {
+    background-color: #dddddd;
+    }
+</style>
+
+<html>
+    <table>
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Number</th>
+                <th>Position</th>
+                <th>Height</th>
+                <th>Picture</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>Brian</td>
+                <td>Amuneke</td>
+                <td>1</td>
+                <td>G</td>
+                <td>6'4"</td>
+                <td><img src="https://images.sidearmdev.com/crop?url=https%3A%2F%2Fdxbhsrqyrr690.cloudfront.net%2Fsidearm.nextgen.sites%2Fgobulldogs.com%2Fimages%2F2024%2F9%2F26%2Famuneke_brian.jpg&width=180&height=270&type=webp" width="60" height="90"></td>
+            </tr>
+            <tr>
+                <td>Yeshua</td>
+                <td>Kesse-Beda</td>
+                <td>4</td>
+                <td>F</td>
+                <td>6'7"</td>
+                <td><img src="https://images.sidearmdev.com/crop?url=https%3A%2F%2Fdxbhsrqyrr690.cloudfront.net%2Fsidearm.nextgen.sites%2Fgobulldogs.com%2Fimages%2F2023%2F8%2F16%2FBulldog_Face_Headshot_copy.png&width=180&height=270&type=webp" width="60" height="90"></td>
+            </tr>
+            <tr>
+                <td>Quentin</td>
+                <td>Rhymes</td>
+                <td>5</td>
+                <td>G</td>
+                <td>6'6"</td>
+                <td><img src="https://images.sidearmdev.com/crop?url=https%3A%2F%2Fdxbhsrqyrr690.cloudfront.net%2Fsidearm.nextgen.sites%2Fgobulldogs.com%2Fimages%2F2023%2F8%2F16%2FBulldog_Face_Headshot_copy.png&width=180&height=270&type=webp" width="60" height="90"></td>
+            </tr>
+            <tr>
+                <td>DJ</td>
+                <td>Stickman</td>
+                <td>6</td>
+                <td>G</td>
+                <td>6'2"</td>
+                <td><img src="https://images.sidearmdev.com/crop?url=https%3A%2F%2Fdxbhsrqyrr690.cloudfront.net%2Fsidearm.nextgen.sites%2Fgobulldogs.com%2Fimages%2F2025%2F9%2F29%2FStickman_DJ.png&width=180&height=270&type=webp" width="60" height="90"></td>
+            </tr>
+            <tr>
+                <td>KJ</td>
+                <td>Perry</td>
+                <td>7</td>
+                <td>G</td>
+                <td>6'3"</td>
+                <td><img src="https://images.sidearmdev.com/crop?url=https%3A%2F%2Fdxbhsrqyrr690.cloudfront.net%2Fsidearm.nextgen.sites%2Fgobulldogs.com%2Fimages%2F2023%2F8%2F16%2FBulldog_Face_Headshot_copy.png&width=180&height=270&type=webp" width="60" height="90"></td>
+            </tr>
+            <tr>
+                <td>Anthony</td>
+                <td>Granger</td>
+                <td>8</td>
+                <td>F</td>
+                <td>6'8"</td>
+                <td><img src="https://images.sidearmdev.com/crop?url=https%3A%2F%2Fdxbhsrqyrr690.cloudfront.net%2Fsidearm.nextgen.sites%2Fgobulldogs.com%2Fimages%2F2023%2F8%2F16%2FBulldog_Face_Headshot_copy.png&width=180&height=270&type=webp" width="60" height="90"></td>
+            </tr>
+            <tr>
+                <td>Roger</td>
+                <td>Fabrega Urpina</td>
+                <td>10</td>
+                <td>G</td>
+                <td>6'1"</td>
+                <td><img src="https://images.sidearmdev.com/crop?url=https%3A%2F%2Fdxbhsrqyrr690.cloudfront.net%2Fsidearm.nextgen.sites%2Fgobulldogs.com%2Fimages%2F2023%2F8%2F16%2FBulldog_Face_Headshot_copy.png&width=180&height=270&type=webp" width="60" height="90"></td>
+            </tr>
+            <tr>
+                <td>Marko</td>
+                <td>Vuckovic</td>
+                <td>11</td>
+                <td>C/F</td>
+                <td>6'8"</td>
+                <td><img src="https://images.sidearmdev.com/crop?url=https%3A%2F%2Fdxbhsrqyrr690.cloudfront.net%2Fsidearm.nextgen.sites%2Fgobulldogs.com%2Fimages%2F2023%2F8%2F16%2FBulldog_Face_Headshot_copy.png&width=180&height=270&type=webp" width="60" height="90"></td>
+            </tr>
+            <tr>
+                <td>Colin</td>
+                <td>Schroeder</td>
+                <td>28</td>
+                <td>F</td>
+                <td>6'8"</td>
+                <td><img src="https://images.sidearmdev.com/crop?url=https%3A%2F%2Fdxbhsrqyrr690.cloudfront.net%2Fsidearm.nextgen.sites%2Fgobulldogs.com%2Fimages%2F2023%2F8%2F16%2FBulldog_Face_Headshot_copy.png&width=180&height=270&type=webp" width="60" height="90"></td>
+            </tr>
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <td colspan="6"> This is a html table of fresno state mens basketball team roster</td>
+            </tr>
+        </tfoot>
+    </table>
+</html>
