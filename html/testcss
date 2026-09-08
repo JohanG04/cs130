@@ -6,13 +6,20 @@
     h1{
         font-family: Arial, Helvetica, sans-serif;
     }
+    h1.ch{
+        font-family: 'Courier New', Courier, monospace;
+    }
     table{
         text-align: center;
+        text-decoration: underline;
         border-collapse: collapse;
         width: 100%;
     }
     td,th{
-        border: 1px solid black;
+        border: 1px solid #000;
+    }
+    th{
+        font-family: 'Courier New', Courier, monospace;
     }
 </style>
 
@@ -26,6 +33,7 @@
     
     <h2>Header 2 using default font</h2>
     <h1>Header 1 using CSS font Helvetica</h1>
+    <h1 class="ch">Header 1 using other font</h1>
 
     <table>
         <thead>
@@ -33,6 +41,11 @@
             <th>col 2</th>
             <th>col 3</th>
         </thead>
+        <tbody>
+            <td>cell 1</td>
+            <td>cell 2</td>
+            <td>cell 3</td>
+        </tbody>
     </table>
 
 </html>
