@@ -1,0 +1,33 @@
+body{
+    background-color: beige;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+table.info_table{
+    width: 100%;
+    text-align: left;
+}
+table.edu_table{
+    width: 100%;
+    text-align: center;
+    background-color: rgb(216, 216, 216);
+}
+
+td, th{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+canvas.pic{
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-right: 10%;
+    width: auto;
+    height: auto;
+    background-color: aqua;
+}
+section.layoutdiv{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+}
