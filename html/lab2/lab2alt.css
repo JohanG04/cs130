@@ -1,5 +1,7 @@
 body{
-    background-color: beige;
+    font-style: italic;
+    color: red;
+    background-color: black;
 }
 table.info_table{
     width: 50%;
@@ -9,15 +11,14 @@ table.info_table{
 table.edu_table{
     width: 75%;
     padding: 10px;
-    background-color: rgb(216, 216, 216);
-    border: 1px solid beige;
+    border: 1px solid red;
     border-collapse: collapse;
     border-radius: 10px;
 }
 
 td, th{
     width:50%;
-    border: 2px solid beige;
+    border: 2px solid red;
     vertical-align: middle;
     padding: 10px;
 }
@@ -28,16 +29,20 @@ img.pic{
     min-height: 123px;
     max-width: 184px;
     max-height: 245px;
+    border: 5px solid black;
+    border-radius: 50%;
 }
 
 img.pic:hover{
     transition: .5s ease;
-    box-shadow: 10px 10px 5px lightblue;
+    transform: rotate(20deg);
+    filter: hue-rotate(360deg);
+    border: 5px solid red;
 }
 
 section.layoutdiv{
     display: flex;
-    flex-direction: row;
+    flex-direction: row-reverse;
     justify-content: center;
     margin-top: 20px;
     gap: 60px;
