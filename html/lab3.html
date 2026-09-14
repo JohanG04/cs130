@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> Lab 3 Web Programming - CSCI 130</title>
+        <style>
+            body{
+                background-color: blanchedalmond;
+                display: flex;
+                justify-content: center ;
+            }
+            ul{
+                list-style: none;
+            }
+        </style>
+    </head>
+
+    <body>
+        <fieldset>
+            <h2>Lab 3 Form:</h2>
+            <ul>
+                <li>
+                    <label for="first_name">First Name:</label>
+                    <input type="text" name="first_name">
+                </li>
+                <li>
+                    <label for="last_name">Last Name:</label>
+                    <input type="text" name="last_name">
+                </li>
+                <li>
+                    <label for="city">City:</label>
+                    <input type="text" name="city">
+                </li>
+                <li>
+                    <label for="state">State:</label>
+                    <select name="state">
+                        <option value="CA">California</option>
+                        <option value="AZ">Arizona</option>
+                        <option value="OR">Oregon</option>
+                        <option value="WA">Washington</option>
+                        <option value="PA">Pennsylvania</option>
+                    </select>
+                </li>
+                <li>
+                    <label for="zip_code">Zip Code:</label>
+                    <input type="text" pattern="[0-9]{5}" placeholder="#####">
+                </li>
+            </ul>
+        </fieldset>
+    </body>
+</html>
