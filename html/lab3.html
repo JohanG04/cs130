@@ -7,18 +7,31 @@
         <style>
             body{
                 background-color: blanchedalmond;
-                display: flex;
-                justify-content: center ;
+                display: grid;
+                place-content: center ;
+            }
+            li{
+                display: grid;
+                grid-template-columns: 40% 60%;
+                margin: 5px;
+                align-items: center;
             }
             ul{
                 list-style: none;
+            }
+            input:invalid{
+                border: 3px solid red;
+            }
+            fieldset{
+                padding: 40px;
+                border-color: brown;
             }
         </style>
     </head>
 
     <body>
         <fieldset>
-            <h2>Lab 3 Form:</h2>
+            <h2 style="text-align: center;">Lab 3 Form:</h2>
             <ul>
                 <li>
                     <label for="first_name">First Name:</label>
@@ -44,7 +57,32 @@
                 </li>
                 <li>
                     <label for="zip_code">Zip Code:</label>
-                    <input type="text" pattern="[0-9]{5}" placeholder="#####">
+                    <input type="text" pattern="[0-9]{5}" placeholder="#####" name="zip_code">
+                </li>
+                <li>
+                    <label for="DOB" title="Date of Birth">DOB:</label>
+                    <input type="text" pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}" placeholder="(mm/dd/yyyy)" name="DOB">
+                </li>
+                <li>
+                    <label for="phone_number" title="Phone Number">Phone Number:</label>
+                    <input type="text" pattern="[0-9]-[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="x-xxx-xxx-xxxx" name="phone_number">
+                </li>
+
+                <h3>Card Information:</h3>
+
+                <li>
+                    <label for="card_number" title="Card Number">Card Number:</label>
+                    <input type="text" pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}" placeholder="xxxx-xxxx-xxxx-xxxx" name="card_number" required>
+                </li>
+
+                <li>
+                    <label for="valid_until" title="Expiration Date">Valid Until:</label>
+                    <input type="text" pattern="[0-9]{2}/[0-9]{2}" placeholder="mm/yy" name="valid_until" required>
+                </li>
+
+                <li>
+                    <label for="security_number" title="Security Number">Security Number:</label>
+                    <input type="text" pattern="[0-9]{3}" placeholder="xxx" name="security_number" required>
                 </li>
             </ul>
         </fieldset>
