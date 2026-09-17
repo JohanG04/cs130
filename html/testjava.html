@@ -6,7 +6,11 @@
         <title>Java Testing</title>
     </head>
 
-    <body>
+    <body id="body">
+        <p id="p1">
+            This is a paragraph
+        </p>    
+        <input type="button" title="button" id="button1" value="button">
         <script>
             let x = 10;
             if (x === 10){
@@ -25,8 +29,20 @@
             for (let i = 0; i < obj.length; i++){
                 console.log(obj[i]);
             }
-
-            alert(obj);
+        </script>
+        <script>
+            let o = document.getElementById("p1");
+            o.innerHTML = '<table><tr><td>A</td><td>B</td></tr></table>';
+            let table1 = document.createElement('TABLE');
+            o.appendChild(table1);
+            let tableBody = document.createElement('TBODY');
+            table1.appendChild(tableBody);
+            let tr = document.createElement('TR');
+            tableBody.appendChild(tr);
+            let td = document.createElement('TD');
+            td.innerHTML = "djsaklfj";
+            tr.appendChild(td);
+            alert(o);
         </script>
     </body>
 </html>
