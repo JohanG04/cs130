@@ -29,16 +29,14 @@ function primes(i){
         return pres[i];
     }
     else{
-        i = pres[i - 1];
         let result = Math.floor(((factorial(i) % (i + 1)))/i);
         result *= (i - 1);
         result += 2;
-        alert(i + ", " + result);
         if (pres.includes(result)){
             return primes(i + 1);
         }
         else{
-            pres[pres.length] = i;
+            pres[pres.length] = result;
             return result;
         }
     }
