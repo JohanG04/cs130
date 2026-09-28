@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>CSCI 130 - lab 6</title>
+        <link rel="stylesheet" type="text/css" href="lab6.css">
+    </head>
+    <body>
+        <fieldset>
+            <h2>Function:</h2>
+            <h3 class="function">(a3)x^3 + (a2)x^2 + (a1)x + (a0)</h3>
+
+            <ul>
+                <li class="input">
+                    <label for="a0"> a0: </label>
+                    <input type="text" id="a0" name="a0">
+                </li>
+                <li class="input">
+                    <label for="a1"> a1: </label>
+                    <input type="text" id="a1" name="a1">
+                </li>
+                <li class="input">
+                    <label for="a2"> a2: </label>
+                    <input type="text" id="a2" name="a2">
+                </li>
+                <li class="input">
+                    <label for="a3"> a3: </label>
+                    <input type="text" id="a3" name="a3">
+                </li>
+                <li class="input">
+                    <label for="xmin"> xmin:</label>
+                    <input type="text" id="xmin" name="xmin">
+                </li>
+                <li class="input">
+                    <label for="xmax"> xmax:</label>
+                    <input type="text" id="xmax" name="xmax">
+                </li>
+                <li class="input">
+                    <label for="points"> n points:</label>
+                    <input type="text" id="points" name="points">
+                </li>
+                <li>
+                    <label for="axis"> Axis: </label>
+                    <input type="checkbox" id="axis" name="axis" checked>
+                </li>
+                <li>
+                    <button  id="graphButton" class="graphButton">Graph</button>
+                </li>
+            </ul>
+        </fieldset>
+
+        <canvas id="graph" class="graph" width="300" height="300"></canvas>
+
+        <script src="lab6.js"></script>
+    </body>
+</html>

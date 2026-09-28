@@ -1,0 +1,33 @@
+body{
+    background-color: whitesmoke;
+    display: grid;
+    grid-template-columns: 20% 80%;
+    column-gap: 10px;
+}
+
+ul{
+    list-style: none;
+    padding-left: 0px;
+}
+
+.function{
+    text-align: center;
+}
+
+.input{
+    display: grid;
+    grid-template-columns: 20% 70%;
+    column-gap: 10px;
+    text-align: right;
+    margin-bottom: 5px;
+}
+
+.graph{
+    border: 1px solid black;
+    image-rendering: crisp-edges;
+    aspect-ratio: 1;
+}
+
+.graphButton{
+    margin: 10px;
+}

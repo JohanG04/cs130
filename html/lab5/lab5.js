@@ -14,7 +14,9 @@ function buttonPressed(){
     results.innerHTML = "";
     for(let i = 0; i < n; i++){
         let result = primes(i);
-        results.innerHTML += "<tr><td>" + i + "</td><td>" + result + "</td></tr>";
+        let tr = document.createElement('TR');
+        tr.innerHTML = "<td>" + i + "</td><td>" + result + "</td>";
+        results.appendChild(tr);
     }
 
 }
