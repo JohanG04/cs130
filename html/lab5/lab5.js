@@ -12,35 +12,26 @@ function buttonPressed(){
     let results = document.getElementById('results').getElementsByTagName('TBODY')[0];
     
     results.innerHTML = "";
+    primes(n);
+
     for(let i = 0; i < n; i++){
-        let result = primes(i);
         let tr = document.createElement('TR');
-        tr.innerHTML = "<td>" + i + "</td><td>" + result + "</td>";
+        tr.innerHTML = "<td>" + i + "</td><td>" + pres[i - 1] + "</td>";
         results.appendChild(tr);
     }
-
+    alert(pres);
 }
 
 
 function primes(i){
-    if (i == 0){
-        pres[0] = 2;
-        return pres[0];
-    }
-    else if (i < pres.length){
-        return pres[i];
-    }
-    else{
-        let result = Math.floor(((factorial(i) % (i + 1)))/i);
-        result *= (i - 1);
-        result += 2;
-        if (pres.includes(result)){
-            return primes(i + 1);
+    while(pres.length < i){
+        for (let n = 2; n <= i; n++){
+            if (i % n == 0){
+                return;
+            }
         }
-        else{
-            pres[pres.length] = result;
-            return result;
-        }
+        
+        pres[pres.length] = pres.length;
     }
 }
 
