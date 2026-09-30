@@ -1,5 +1,5 @@
 const fres = [];
-const pres = [];
+const pres = [2];
 
 const enter_button = document.getElementById('enter');
 
@@ -16,22 +16,27 @@ function buttonPressed(){
 
     for(let i = 0; i < n; i++){
         let tr = document.createElement('TR');
-        tr.innerHTML = "<td>" + i + "</td><td>" + pres[i - 1] + "</td>";
+        tr.innerHTML = "<td>" + (i + 1) + "</td><td>" + pres[i] + "</td>";
         results.appendChild(tr);
     }
-    alert(pres);
 }
 
 
 function primes(i){
+    let curr = pres[pres.length - 1] + 1;
     while(pres.length < i){
-        for (let n = 2; n <= i; n++){
-            if (i % n == 0){
-                return;
+        let prime = true;
+        for (let n = 2; n <= Math.sqrt(curr); n++){
+            if (curr % n == 0){
+                prime = false;
             }
         }
-        
-        pres[pres.length] = pres.length;
+        console.log(pres);
+        if (prime){
+            pres[pres.length] = curr;
+        }
+
+        curr += 1;
     }
 }
 
