@@ -9,9 +9,9 @@ let ymax = 0;
 let npoints = 1;
 let x_step = 1;
 let y_step = 1;
-let step = 30; //30 px = 1 unit
-const xorigin = 30;
-const yorigin = 270;
+let step = 29; //30 px = 1 unit
+const xorigin = 300;
+const yorigin = 300;
 
 graph_Button.addEventListener("click", compute_function);
 axis_Check.addEventListener("click", draw_axis);
@@ -23,23 +23,24 @@ function draw() {
 
 function draw_axis(){
     let ctx = graph.getContext("2d");
-    ctx.clearRect(0, 0, 31, ctx.canvas.height);
-    ctx.clearRect(29, 229, ctx.canvas.width, 270);
+    ctx.clearRect(graph.width/2 - 1, 0, 20, graph.height);
+    ctx.clearRect(0, graph.height/2 - 10, graph.width, 20);
     
     if (!axis_Check.checked){
         return;
     }
 
 
-    ctx.moveTo(xorigin, 20);
-    ctx.lineTo(xorigin, yorigin);
-    ctx.lineTo(280, yorigin);
+    ctx.moveTo(xorigin, 0);
+    ctx.lineTo(xorigin, graph.height);
+    ctx.moveTo(0, yorigin)
+    ctx.lineTo(graph.width, yorigin);
 
     //ctx.fillText("(0,0)", 5, 280);
 
-    for (let i = 0; i * step <= 240; i++){
-        ctx.fillText("" + (i * y_step) + "", 5, yorigin - (i * step));
-        ctx.fillText("" + (i * x_step + xmin) + "", (i * step) + 30, 290);
+    for (let i = -graph.width/2; i * step <= graph.width/2; i++){
+        ctx.fillText("" + (i * y_step) + "", graph.width/2, graph.height/2 - (i * step) + 5);
+        ctx.fillText("" + (i * x_step + xmin) + "", graph.height/2 + (i * step) - 5, graph.height/2);
         
     }
 
@@ -61,7 +62,7 @@ function compute_function(){
 
     ymax = 0;
 
-    step = Math.ceil(240/npoints);
+    step = Math.ceil(graph.width/npoints);
     x_step = Math.ceil((xmax - xmin)/npoints);
     
     let ycurr = 0;
@@ -74,7 +75,7 @@ function compute_function(){
         ymax = ycurr;
     }
 
-    y_step = Math.ceil(ymax/npoints);
+    y_step = Math.ceil((ymax)/npoints);
 
 
 
