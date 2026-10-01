@@ -2,6 +2,8 @@ const graph_Button = document.getElementById('graphButton');
 const axis_Check = document.getElementById('axis');
 
 const graph = document.getElementById('graph');
+let xs = [];
+let ys = [];
 
 let xmax = 1;
 let xmin = 0;
@@ -10,49 +12,64 @@ let npoints = 1;
 let x_step = 1;
 let y_step = 1;
 let step = 29; //30 px = 1 unit
-const xorigin = 300;
-const yorigin = 300;
+const xorigin = graph.width/2;
+const yorigin = graph.height/2;
 
 graph_Button.addEventListener("click", compute_function);
 axis_Check.addEventListener("click", draw_axis);
 
 function draw() {
+    
     draw_axis();
+    let ctx = graph.getContext("2d");
+    ctx.fillStyle = "rgb(0, 0, 255)";
+
+    ctx.moveTo(xs[0] * step + xorigin,(ys[0] / y_step) * step* -1 + yorigin);   //Move to start of line
+    for(i in xs){
+        ctx.lineTo((xs[i]) + xorigin,(ys[i] / y_step)* -1 + yorigin);
+
+        console.log("%f, %f",((xs[i] / x_step)),ys[i] / y_step);
+    }
+
+    ctx.stroke();
+
+    
+    
     
 }
 
 function draw_axis(){
     let ctx = graph.getContext("2d");
-    ctx.clearRect(graph.width/2 - 1, 0, 20, graph.height);
-    ctx.clearRect(0, graph.height/2 - 10, graph.width, 20);
+    ctx.fillStyle = "rgb(0,0,0)";
+    ctx.clearRect(0, 0, graph.width, graph.height);
     
     if (!axis_Check.checked){
         return;
     }
 
-
+    
     ctx.moveTo(xorigin, 0);
     ctx.lineTo(xorigin, graph.height);
     ctx.moveTo(0, yorigin)
     ctx.lineTo(graph.width, yorigin);
 
     //ctx.fillText("(0,0)", 5, 280);
-
+    
     for (let i = -graph.width/2; i * step <= graph.width/2; i++){
-        ctx.fillText("" + (i * y_step) + "", graph.width/2, graph.height/2 - (i * step) + 5);
-        ctx.fillText("" + (i * x_step + xmin) + "", graph.height/2 + (i * step) - 5, graph.height/2);
+        ctx.fillText("" + (i * y_step) + "", graph.width/2, graph.height/2 - (i * step));
+        ctx.fillText("" + (i * x_step) + "", graph.width/2 + (i * step), graph.height/2);
         
     }
-
     
-
+    
+    
     ctx.stroke();
-
+    
     
 }
 
 function compute_function(){
-    npoints = document.getElementById('points').value;
+    npoints = document.getElementById('points').value * 2;
     xmin = parseInt(document.getElementById('xmin').value, 10);
     xmax = document.getElementById('xmax').value;
     let a3 = document.getElementById('a3').value;
@@ -60,27 +77,46 @@ function compute_function(){
     let a1 = document.getElementById('a1').value;
     let a0 = document.getElementById('a0').value; 
 
+    updateFunc(a0, a1, a2, a3);
+    
     ymax = 0;
+    
+    step = Math.ceil((graph.width - 50)/npoints);
 
-    step = Math.ceil(graph.width/npoints);
-    x_step = Math.ceil((xmax - xmin)/npoints);
+    if (Math.abs(xmax) > Math.abs(xmin)){
+        x_step = ((Math.abs(xmax))/npoints * 2);
+    }
+    else{
+        x_step = ((Math.abs(xmin))/npoints * 2);
+    }
     
     let ycurr = 0;
+    xs = [];
+    ys = [];
     
-    for (let i = xmin; i < xmax; i+= x_step){
+    for (let i = xmin; Math.floor(i) <= xmax; i+= ((Math.abs(xmax) + Math.abs(xmin))/(npoints/2 - 1))){
+        
         ycurr = (a3 * Math.pow(i, 3)) + (a2 * Math.pow(i, 2)) + (a1 * i) + a0;
-        console.log(ycurr);
-        console.log(ymax);
+        
+        xs[xs.length] = i;
+        ys[ys.length] = ycurr;
         
         ymax = ycurr;
     }
-
-    y_step = Math.ceil((ymax)/npoints);
-
-
+    //console.log(xs.length);
+    
+    y_step = Math.ceil(ymax/npoints);
 
     draw();
+    
+}
 
+function updateFunc(a0, a1, a2, a3){
+    let func = document.getElementById('function');
+
+    func.innerHTML = "" + (a3) + "x^3 + " + (a2) + "x^2 + " + (a1) + "x + " + (a0) + "";
+
+    
 }
 
 draw_axis();

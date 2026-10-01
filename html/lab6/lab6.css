@@ -22,10 +22,15 @@ ul{
     margin-bottom: 5px;
 }
 
+.input :invalid{
+    border: 1px solid red;
+}
+
 .graph{
     border: 1px solid black;
     image-rendering: crisp-edges;
     aspect-ratio: 1;
+    height: 100%;
 }
 
 .graphButton{
