@@ -16,6 +16,8 @@ let step = 29; //30 px = 1 unit
 const xorigin = graph.width/2;
 const yorigin = graph.height/2;
 
+const exists = (a, b) => {if (!isNaN(a)) return a; else return b;}
+
 graph_Button.addEventListener("click", compute_function);
 axis_Check.addEventListener("click", draw);
 
@@ -33,11 +35,8 @@ function draw() {
 
         console.log("%f, %f",(((xs[i]) / x_step) + xorigin),((ys[i]/y_step) * step) * -1 + yorigin);
     }
-    ctx.closePath();
     ctx.stroke();
-
-    
-    
+    ctx.closePath();
     
 }
 
@@ -47,28 +46,28 @@ function draw_axis(){
     ctx.fillStyle = "rgb(0,0,0)";
     //ctx.clearRect(0, 0, graph.width, graph.height);
     
+    ctx.beginPath();
     ctx.moveTo(xorigin, 0);
     ctx.lineTo(xorigin, graph.height);
     ctx.moveTo(0, yorigin)
     ctx.lineTo(graph.width, yorigin);
     ctx.stroke();
+    ctx.closePath();
 
     if (!axis_Check.checked){
         return;
     }
 
     //ctx.fillText("(0,0)", 5, 280);
-    
+    ctx.beginPath();
     for (let i = -graph.width/2; i * step <= graph.width/2; i++){
         ctx.fillText("" + (i * y_step) + "", graph.width/2, graph.height/2 - (i * step));
         ctx.fillText("" + (i * x_step).toFixed(1) + "", graph.width/2 + (i * step), graph.height/2);
         
     }
     
-    
-    
     ctx.stroke();
-    
+    ctx.closePath();
     
 }
 
@@ -84,6 +83,7 @@ function compute_function(){
     let a0 = parseInt(document.getElementById('a0').value); 
 
 
+    //update the function displayed at the top of the page with user input
     updateFunc(a0, a1, a2, a3);
     
     ymax = 0;
@@ -95,6 +95,7 @@ function compute_function(){
     let ycurr = 0;
     xs = [];
     ys = [];
+
     
     for (let i = xmin; Math.floor(i) <= xmax; i+= ((Math.abs(xmax) + Math.abs(xmin))/(npoints/2 - 1))){
         
@@ -120,7 +121,9 @@ function compute_function(){
 function updateFunc(a0, a1, a2, a3){
     let func = document.getElementById('function');
 
-    func.innerHTML = "" + (a3) + "x^3 + " + (a2) + "x^2 + " + (a1) + "x + " + (a0) + "";
+    console.log(a3);
+
+    func.innerHTML = "" + exists(a3, "(a3)") + "x^3 + " + exists(a2, "(a2)") + "x^2 + " + exists(a1,"(a1)") + "x + " + exists(a0, "(a0)") + "";
 
     
 }

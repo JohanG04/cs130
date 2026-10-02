@@ -35,16 +35,25 @@ ul{
 }
 
 .graphButton{
-    margin: 10px;
+    grid-column: 2;
+    align-self: stretch;
+
+}
+
+.axis{
+    justify-self: left;
 }
 
 div{
     display: grid;
     grid-template-rows: 10% 90%;
     align-items: start;
+    overflow-y: scroll;
+    max-height: 80vh;
 }
 
 table{
+    height: 100%;
     border-collapse: collapse;
 }
 
