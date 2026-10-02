@@ -1,8 +1,8 @@
 body{
     background-color: whitesmoke;
     display: grid;
-    grid-template-columns: 20% 80%;
-    column-gap: 10px;
+    grid-template-columns: 20% 60% 20%;
+    justify-items: stretch;
 }
 
 ul{
@@ -28,11 +28,26 @@ ul{
 
 .graph{
     border: 1px solid black;
+    justify-self: center;
     image-rendering: crisp-edges;
     aspect-ratio: 1;
-    height: 100%;
+    max-height: 100%;
 }
 
 .graphButton{
     margin: 10px;
+}
+
+div{
+    display: grid;
+    grid-template-rows: 10% 90%;
+    align-items: start;
+}
+
+table{
+    border-collapse: collapse;
+}
+
+th, td{
+    border: 1px solid black;
 }

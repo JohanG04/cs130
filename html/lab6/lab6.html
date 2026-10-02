@@ -14,31 +14,31 @@
             <ul>
                 <li class="input">
                     <label for="a0"> a0: </label>
-                    <input type="text" id="a0" name="a0" required>
+                    <input type="number" id="a0" name="a0" required>
                 </li>
                 <li class="input">
                     <label for="a1"> a1: </label>
-                    <input type="text" id="a1" name="a1" required>
+                    <input type="number" id="a1" name="a1" required>
                 </li>
                 <li class="input">
                     <label for="a2"> a2: </label>
-                    <input type="text" id="a2" name="a2" required>
+                    <input type="number" id="a2" name="a2" required>
                 </li>
                 <li class="input">
                     <label for="a3"> a3: </label>
-                    <input type="text" id="a3" name="a3" required>
+                    <input type="number" id="a3" name="a3" required>
                 </li>
                 <li class="input">
                     <label for="xmin"> xmin:</label>
-                    <input type="text" id="xmin" name="xmin" required>
+                    <input type="number" id="xmin" name="xmin" required>
                 </li>
                 <li class="input">
                     <label for="xmax"> xmax:</label>
-                    <input type="text" id="xmax" name="xmax" required>
+                    <input type="number" id="xmax" name="xmax" required>
                 </li>
                 <li class="input">
                     <label for="points"> n points:</label>
-                    <input type="text" id="points" name="points" required>
+                    <input type="number" id="points" name="points" required>
                 </li>
                 <li>
                     <label for="axis"> Axis: </label>
@@ -51,6 +51,26 @@
         </fieldset>
 
         <canvas id="graph" class="graph" width="600" height="600"></canvas>
+
+        <div id="pointsdiv">
+            <header>
+                <h2>Points:</h2>
+            </header>
+            <table>
+                <thead>
+                    <tr>
+                        <th>x</th>
+                        <th>y</th>
+                    </tr>
+                </thead>
+                <tbody id="pointstable">
+                    <tr>
+                        <td>x value</td>
+                        <td>y value</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
         <script src="lab6.js"></script>
     </body>
