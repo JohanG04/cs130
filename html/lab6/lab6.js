@@ -108,7 +108,7 @@ function draw_axis(){
     }
 
     //draw axis numbers at every step.
-    for (let i = -graph.width/2; i * step <= graph.width/2; i++){
+    for (let i = -graph.width/2; i <= graph.width/2; i++){
         ctx.fillText("" + (i * y_step).toFixed(1) + "", xorigin + graphoffsetx, yorigin + (i * step) * direction + graphoffsety);
         ctx.fillText("" + (i * x_step).toFixed(1) + "", xorigin + (i * step) + graphoffsetx, yorigin + graphoffsety);
     }
