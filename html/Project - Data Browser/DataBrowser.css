@@ -1,3 +1,28 @@
-.window{
+
+body{
+    display: grid;
+    height: 100vh;
+    grid-template-rows: 10% 90%;
+    justify-items: stretch;
+    overflow-y: hidden;
+    
+}
+
+.topbar{
+    background-color: whitesmoke;
+}
+
+.table{
     border: 1px solid black;
+    overflow-y: scroll;
+}
+
+.objTable{
+    border-collapse: separate;
+    width: 100%;
+}
+
+.objTable td:hover{
+    transition: .8s ease-out;
+    filter:brightness(.8);
 }
