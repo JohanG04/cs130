@@ -6,6 +6,7 @@ body{
     justify-items: stretch;
     overflow-y: hidden;
     
+    
 }
 
 .topbar{
@@ -25,4 +26,5 @@ body{
 .objTable td:hover{
     transition: .8s ease-out;
     filter:brightness(.8);
+    
 }

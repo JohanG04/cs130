@@ -15,7 +15,6 @@ class myClass{
     }
 }
 
-//Get Objects from Database (SQLite)
 objects = [
     new myClass("a", 1),
     new myClass("b", 2),
@@ -28,10 +27,48 @@ objects = [
 
 ];
 
+/*
+    Get objects and fill the array of current objects
+    Makes a http GET request for json file data.json
+*/
+function get_objects(){
+    httpRequest = new XMLHttpRequest();
 
-//Function to dynamically change amount of rows and columns for a table
-//to account for different window sizes.
+    if (!httpRequest){
+        alert("Could not create HTTP Request");
+        return false;
+    }
+
+    httpRequest.onreadystatechange = alertcontent;
+    httpRequest.open('GET', 'data.json');
+    httpRequest.send();
+}
+
+/*
+    alerts user with the content received from the server.
+*/
+function alertcontent(){
+    try{
+        if(httpRequest.readyState === XMLHttpRequest.DONE){
+            if (httpRequest.status === 200){
+                alert(httpRequest.responseText);
+            }
+            else{
+                alert("A problem occured with the request");
+            }
+        }
+    }
+    catch(e){
+        alert("Caught Exception: " + e.description);
+    }
+}
+
+/*
+    Function to dynamically change amount of rows and columns for a table
+    to account for different window sizes.
+*/
 function draw_table(){
+    get_objects();
     let len = objects.length;
     let num_cols = Math.floor(window.innerWidth/(cell_width));
     let num_rows = Math.ceil(len/num_cols);
@@ -72,4 +109,7 @@ function draw_table(){
 */
 }
 
+
+
+//Call draw table function when page is opened
 draw_table();
