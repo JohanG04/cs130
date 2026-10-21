@@ -14,7 +14,7 @@ class myClass{
 
     }
 }
-
+/*
 objects = [
     new myClass("a", 1),
     new myClass("b", 2),
@@ -26,11 +26,11 @@ objects = [
     new myClass("h", 12)
 
 ];
-
-/*
+*/
+/**
     Get objects and fill the array of current objects
     Makes a http GET request for json file data.json
-*/
+**/
 function get_objects(){
     httpRequest = new XMLHttpRequest();
 
@@ -44,14 +44,15 @@ function get_objects(){
     httpRequest.send();
 }
 
-/*
+/**
     alerts user with the content received from the server.
-*/
+**/
 function alertcontent(){
     try{
         if(httpRequest.readyState === XMLHttpRequest.DONE){
             if (httpRequest.status === 200){
-                alert(httpRequest.responseText);
+                //set the objects list to the received JSON list on server
+                objects = JSON.parse(httpRequest.responseText)['objects'];       
             }
             else{
                 alert("A problem occured with the request");
@@ -63,18 +64,18 @@ function alertcontent(){
     }
 }
 
-/*
+/** 
     Function to dynamically change amount of rows and columns for a table
     to account for different window sizes.
-*/
+**/
 function draw_table(){
     get_objects();
     let len = objects.length;
     let num_cols = Math.floor(window.innerWidth/(cell_width));
     let num_rows = Math.ceil(len/num_cols);
 
-    console.log(num_cols);
-    console.log(num_rows);
+    //console.log(num_cols);
+    //console.log(num_rows);
 
     
     obj_table.innerHTML = "";

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Midterm 1 - Part 2</title>
+
+        
+        <style>
+            .td:hover{
+                color: green;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="p1">
+            <h2>Function: f(x)=3*x^2 + 2*x + 3</h2>
+            <label>X = <input type="number" id="xvalue" value="1"></label>
+            <input type="button" id="xsubmit" value="submit">
+            <p id="p1sol"></p>
+
+            <script>
+                const p1button = document.getElementById("xsubmit");
+
+                p1button.addEventListener("click", calculate);
+
+                function myfunction(xval){
+                    return 3 * Math.pow(xval, 2) + 2 * xval + 3;
+                }
+
+                function calculate(){
+                    let x = document.getElementById("xvalue").value;
+                    let sol = document.getElementById("p1sol");
+
+                    let f = myfunction(x);
+                    sol.innerHTML = "F(" +  x + ") = " + f + "";
+                }
+            </script>
+        </div>
+
+        <div class="p2">
+            <h2>f(x) from -n to n:</h2>
+            <label>n = <input type="number" id="nvalue" value="-1"></label>
+            <input type="button" id="p2submit" value="submit">
+
+            <script>
+                const p2button = document.getElementById("p2submit");
+                let p2sol = [];
+                
+                p2button.addEventListener("click", calcn);
+                
+                function calcn(){
+                    let n = document.getElementById("nvalue").value;
+                    p2sol = [];
+
+                    for (let i = 0; i <= n * 2; i++){
+                        p2sol[i] = myfunction(i - n);
+                    }
+
+                    alert(p2sol);
+                    return p2sol;
+                }
+
+            </script>
+        </div>
+
+        <div class="p3">
+            <h2>Reverse List</h2>
+            <input type="button" id="reverseListButton" value="Reverse List">
+            <script>
+                let revButton = document.getElementById("reverseListButton");
+
+                revButton.addEventListener("click", reverseList);
+
+                function reverseList(){
+                    let revlist = [];
+
+                    for (let i = 0; i < p2sol.length; i++){
+                        revlist[p2sol.length - 1 - i] = p2sol[i];
+                    }
+
+                    p2sol = revlist;
+
+                    alert(p2sol);
+                    return p2sol;
+                }
+            </script>
+        </div>
+
+        <div class="p5">
+            <h2>Table</h2>
+            <input type="button" id="tablebutton" value="create table">
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>x</th>
+                        <th>f(x)</th>
+                    </tr>
+                </thead>
+                <tbody id="mytable"></tbody>
+            </table>
+
+            <script>
+                const tablebutton = document.getElementById("tablebutton");
+
+                tablebutton.addEventListener("click", createTable);
+
+                function createTable(){
+                    let arr = p2sol;
+                    let n = document.getElementById("nvalue").value;
+                    let table = document.getElementById("mytable");
+
+                    table.innerHTML = "";
+
+                    for (i = 0; i <= n*2; i++){
+                        let tr = document.createElement("TR");
+                        let tdx = document.createElement("TD");
+                        let tdf = document.createElement("TD");
+
+                        tdx.innerHTML = "" + (i - n) + "";
+                        tdf.innerHTML = "" + arr[i] + "";
+
+                        tr.appendChild(tdx);
+                        tr.appendChild(tdf);
+
+                        table.appendChild(tr);
+
+                    }
+                }
+            </script>
+
+        </div>
+    </body>
+</html>
