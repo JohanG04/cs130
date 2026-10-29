@@ -7,14 +7,25 @@
     </head>
 
     <body>
+        <?php
+        if ($_POST["n_value"]){
+            echo "N = ". $_POST["n_value"] ."";
+        }
+        ?>
+
         <div>
-            <label>n =
-                <input type="text" value=0>
-                <input type="button" value="Enter">
-            </label>
-            <input type="button" value="Fill Random">
+            <form action="<?php $_PHP_SELF?>" method="POST">n =
+                <input name="n_value" id="n_value" type="text" value=0>
+                <input type="submit" value="Enter" id="n_button">
+            </form>
+            <input type="button" value="Fill Random"  id="fill_button">
+        </div>
+
+        <div>
+            <h3>Current Array:</h3>
+            <p id="curr_arr">[]</p>
         </div>
         
-        <?php echo "jjjjjj"; ?>
+        <script src="lab10.js"></script>
     </body>
 </html>
