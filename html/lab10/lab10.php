@@ -8,13 +8,16 @@
 
     <body>
         <?php
-        if ($_POST["n_value"]){
-            echo "N = ". $_POST["n_value"] ."";
+        if ($_SERVER["REQUEST_METHOD"] == "POST"){
+            $n_value = htmlspecialchars($_POST['n_value']);
+            if (!empty($n_value)){
+                echo "N = ". $n_value ."";
+            }
         }
         ?>
 
         <div>
-            <form action="<?php $_PHP_SELF?>" method="POST">n =
+            <form action="<?php $_SERVER['PHP_SELF']?>" method="POST">n =
                 <input name="n_value" id="n_value" type="text" value=0>
                 <input type="submit" value="Enter" id="n_button">
             </form>
