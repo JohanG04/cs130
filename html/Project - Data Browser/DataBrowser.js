@@ -103,7 +103,7 @@ function draw_table(){
 
     obj_table.appendChild(new_table);
 
-    /**
+    /*
     for (let i = 0; i < len; i++){
         console.log(objects[i].name);
     }

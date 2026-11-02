@@ -1,16 +1,11 @@
 
-class arrayInput{
-    constructor(name, value){
-        this.name = name;
-        this.value = value;
-    }
-}
-
 let arr = [];
+let results = 0;
 
 const nbutton = document.getElementById("n_button");
 const fillbutton = document.getElementById("fill_button");
 const savebutton = document.getElementById("save_button");
+const calcbutton = document.getElementById("calculate_button");
 
 //Max number for random numbers generated for array
 const random_max = 100;
@@ -20,6 +15,7 @@ let n = parseInt(document.getElementById("n_value").value);
 nbutton.addEventListener("click", create_arr);
 fillbutton.addEventListener("click", fill_random);
 savebutton.addEventListener("click", save_array);
+//calcbutton.addEventListener("click", send_array);
 
 //display the current array to user.
 function display_arr(){
@@ -30,9 +26,9 @@ function display_arr(){
         //create input elements for the user to edit the array
         let input = document.createElement("INPUT");
         input.type = "number";
-        input.id = arr[i].name;
-        input.setAttribute("name", arr[i].name);
-        input.setAttribute("value", arr[i].value);
+        input.id = "v" + i + "";
+        input.setAttribute("name", "v" + i + "");
+        input.setAttribute("value", arr[i]);
         curr.appendChild(input);
         curr.innerHTML += ", ";
 
@@ -48,7 +44,7 @@ function create_arr(){
     n = parseInt(document.getElementById("n_value").value);
     
     for (let i = 0; i < n; i++){
-        let newVal = new arrayInput("v" + i + "", i);
+        let newVal = i;
         arr[i] = newVal;
     }
 
@@ -58,7 +54,7 @@ function create_arr(){
 //fill existing array with random numbers
 function fill_random(){
     for (let i = 0; i < n; i++){
-        arr[i].value = Math.floor(Math.random() * random_max);
+        arr[i] = Math.floor(Math.random() * random_max);
     }
 
     display_arr();
@@ -67,6 +63,35 @@ function fill_random(){
 //iterates over the array to set user input
 function save_array(){
     for (let i = 0; i < n; i++){
-        arr[i].value = parseInt(document.getElementById("v" + i + "").value);
+        arr[i] = parseInt(document.getElementById("v" + i + "").value);
+    }
+}
+
+function send_array(){
+    httpRequest = new XMLHttpRequest();
+
+    if (!httpRequest){
+        alert("could not create HTTP request");
+    }
+
+    httpRequest.onreadystatechange = alertcontent;
+    httpRequest.open('GET', "lab10.php?arr=" + JSON.stringify(arr), true);
+    httpRequest.send();
+
+}
+
+function print_results(){
+    p = document.getElementById("results");
+
+    p.innerHTML = JSON.stringify(results);
+}
+
+function alertcontent(){
+    if (httpRequest.readyState === XMLHttpRequest.DONE){
+        if (httpRequest.status === 200){
+            results = JSON.parse(httpRequest.responseText);
+            
+            print_results();
+        }
     }
 }

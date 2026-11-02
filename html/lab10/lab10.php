@@ -1,34 +1,31 @@
-<!DOCTYPE html>
+<?php
+//$json = $_GET[];
 
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>Lab 10 - CSCI 130</title>
-    </head>
+//$arr = json_decode($json);
 
-    <body>
-        <?php
-        if ($_SERVER["REQUEST_METHOD"] == "POST"){
-            $n_value = htmlspecialchars($_POST['n_value']);
-            if (!empty($n_value)){
-                echo "N = ". $n_value ."";
-            }
-        }
-        ?>
+$avg = 0;
+$sum = 0;
+$median = 0;
+$stdev = 0;
+$min = min($_GET);
+$max = max($_GET);
+$n = 0;
 
-        <div>
-            <form action="<?php $_SERVER['PHP_SELF']?>" method="POST">n =
-                <input name="n_value" id="n_value" type="text" value=0>
-                <input type="submit" value="Enter" id="n_button">
-            </form>
-            <input type="button" value="Fill Random"  id="fill_button">
-        </div>
+foreach($_GET as $i){
+    $sum += $i;
+    $n += 1;
+}
+    
+$avg = $sum/$n;
+    
+foreach($_GET as $i){
+    $stdev = $i - $avg;
+}
 
-        <div>
-            <h3>Current Array:</h3>
-            <p id="curr_arr">[]</p>
-        </div>
-        
-        <script src="lab10.js"></script>
-    </body>
-</html>
+sort($_GET);
+$median = $_GET[floor($n/2)];
+
+$stdev = sqrt(pow($stdev, 2) / $n);
+
+echo json_encode(array("avg"=>$avg, "median"=>$median, "stdev"=>$stdev, "min"=>$min, "max"=>$max));
+?>
