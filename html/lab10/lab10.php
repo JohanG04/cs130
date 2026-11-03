@@ -1,31 +1,47 @@
-<?php
-//$json = $_GET[];
 
-//$arr = json_decode($json);
+<?php
+$json = $_REQUEST["arr"];
+
+$arr = json_decode($json);
 
 $avg = 0;
-$sum = 0;
 $median = 0;
 $stdev = 0;
-$min = min($_GET);
-$max = max($_GET);
-$n = 0;
 
-foreach($_GET as $i){
-    $sum += $i;
-    $n += 1;
+//set maximum and minimum of array
+$min = min($arr);
+$max = max($arr);
+
+//size of array
+$n = sizeof($arr);
+
+
+//get average of array
+function get_average($arr){
+    $sum = 0;
+    foreach($arr as $i){
+        $sum += $i;
+    }
+
+    return $sum/sizeof($arr);
 }
     
-$avg = $sum/$n;
-    
-foreach($_GET as $i){
-    $stdev = $i - $avg;
+//get standard deviation of array
+function get_stdev($arr, $avg){
+    $sum = 0;
+    foreach($arr as $i){
+        $sum = $i - $avg;
+    }
+
+    return sqrt(pow($sum, 2) / sizeof($arr));
 }
 
-sort($_GET);
-$median = $_GET[floor($n/2)];
+$avg = get_average($arr);
+$stdev = get_stdev($arr, $avg);
+sort($arr);
+$median = $arr[floor(sizeof($arr)/2)];
 
-$stdev = sqrt(pow($stdev, 2) / $n);
 
 echo json_encode(array("avg"=>$avg, "median"=>$median, "stdev"=>$stdev, "min"=>$min, "max"=>$max));
+
 ?>

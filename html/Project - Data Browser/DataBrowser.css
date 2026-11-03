@@ -18,6 +18,10 @@ body{
     overflow-y: scroll;
 }
 
+.table td{
+    background-color: aliceblue;
+}
+
 .objTable{
     border-collapse: separate;
     width: 100%;

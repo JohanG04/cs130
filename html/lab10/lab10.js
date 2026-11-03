@@ -15,7 +15,7 @@ let n = parseInt(document.getElementById("n_value").value);
 nbutton.addEventListener("click", create_arr);
 fillbutton.addEventListener("click", fill_random);
 savebutton.addEventListener("click", save_array);
-//calcbutton.addEventListener("click", send_array);
+calcbutton.addEventListener("click", send_array);
 
 //display the current array to user.
 function display_arr(){
@@ -83,7 +83,7 @@ function send_array(){
 function print_results(){
     p = document.getElementById("results");
 
-    p.innerHTML = JSON.stringify(results);
+    p.innerHTML = "Average: " + results.avg + "<br>Median: " + results.median + "<br>Standard Deviation: " + results.stdev + "<br>min: " + results.min + "<br>max: " + results.max;
 }
 
 function alertcontent(){
@@ -95,3 +95,5 @@ function alertcontent(){
         }
     }
 }
+
+display_arr();

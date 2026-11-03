@@ -14,7 +14,7 @@ class myClass{
 
     }
 }
-/*
+
 objects = [
     new myClass("a", 1),
     new myClass("b", 2),
@@ -26,7 +26,7 @@ objects = [
     new myClass("h", 12)
 
 ];
-*/
+
 /**
     Get objects and fill the array of current objects
     Makes a http GET request for json file data.json
@@ -69,7 +69,7 @@ function alertcontent(){
     to account for different window sizes.
 **/
 function draw_table(){
-    get_objects();
+    //get_objects();
     let len = objects.length;
     let num_cols = Math.floor(window.innerWidth/(cell_width));
     let num_rows = Math.ceil(len/num_cols);
@@ -92,7 +92,6 @@ function draw_table(){
             td.style.width = "" + cell_width + "px";
             td.style.height = "" + cell_height + "px";
             if (j + (i * num_cols) < len){
-                td.style.backgroundColor = "aliceblue";
                 td.innerHTML = "" + (objects[j + (i * num_cols)].name) + "";
             }
 
