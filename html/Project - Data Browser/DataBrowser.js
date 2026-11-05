@@ -1,11 +1,10 @@
 const table_div = document.getElementById('table');
 const obj_table = document.getElementById('objTable');
 
+const cell_width = 300;
+const cell_height = 300;
 
 addEventListener('resize', draw_table);
-
-const cell_width = 300;   //width of each object for table
-const cell_height = 500;
 
 class myClass{
     constructor(name, year){
@@ -44,9 +43,7 @@ function get_objects(){
     httpRequest.send();
 }
 
-/**
-    alerts user with the content received from the server.
-**/
+/**alerts user with the content received from the server.**/
 function alertcontent(){
     try{
         if(httpRequest.readyState === XMLHttpRequest.DONE){
@@ -64,10 +61,7 @@ function alertcontent(){
     }
 }
 
-/** 
-    Function to dynamically change amount of rows and columns for a table
-    to account for different window sizes.
-**/
+/** Function to dynamically change amount of rows and columns for a table to account for different window sizes.**/
 function draw_table(){
     //get_objects();
     let len = objects.length;
@@ -89,10 +83,15 @@ function draw_table(){
         let tr = document.createElement('TR');
         for(let j = 0; j < num_cols; j++){
             let td = document.createElement('TD');
-            td.style.width = "" + cell_width + "px";
-            td.style.height = "" + cell_height + "px";
             if (j + (i * num_cols) < len){
-                td.innerHTML = "" + (objects[j + (i * num_cols)].name) + "";
+                //Individual Cells
+                let label = document.createElement('LABEL');
+                let image = document.createElement('IMG');
+                td.style.backgroundColor = "aliceblue";
+                image.src = ""; //image of object 
+                label.innerHTML = "" + (objects[j + (i * num_cols)].name) + "";
+                td.appendChild(image);
+                td.appendChild(label);
             }
 
             tr.appendChild(td);
@@ -105,8 +104,8 @@ function draw_table(){
     /*
     for (let i = 0; i < len; i++){
         console.log(objects[i].name);
-    }
-*/
+    }*/
+
 }
 
 
