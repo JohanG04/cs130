@@ -9,8 +9,16 @@
     
     <body>
         <nav class="topbar">
-            <h1>Data Browser</h1>
-            <input type="range">
+            <!--User Sorting Methods-->
+            <label>Items Shown:
+                <select>
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="30">30</option>
+                    <option value="40">40</option>
+                </select>
+            </label>
+            <label>Sort By Name: <input type="search"></label>
         </nav>
         
         <div class="table">
@@ -18,6 +26,18 @@
                 <tbody></tbody>
             </table>
             
+        </div>
+
+        <div class="objectView" id="objectView"> <!--Should NOT be visible to start. Will display object information individually-->
+            <h1>Object Name</h1>
+            <p>0/0</p>
+
+            <div> <!--Buttons-->
+                <input type="button" value="<<" id="first">
+                <input type="button" value="<" id="previous">
+                <input type="button" value=">" id="next">
+                <input type="button" value=">>" id="last">
+            </div>
         </div>
 
         <script src="DataBrowser.js"></script>

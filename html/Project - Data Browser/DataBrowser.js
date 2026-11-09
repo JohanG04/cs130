@@ -1,10 +1,15 @@
 const table_div = document.getElementById('table');
 const obj_table = document.getElementById('objTable');
 
+const object_view = document.getElementById('objectView');
+const first_button = document.getElementById('first');
+const last_button = document.getElementById('last');
+
 const cell_width = 300;
 const cell_height = 300;
 
 addEventListener('resize', draw_table);
+
 
 class myClass{
     constructor(name, year){
@@ -23,12 +28,23 @@ objects = [
     new myClass("f", 2),
     new myClass("g", 5),
     new myClass("h", 12)
-
+    
 ];
+
+
+first_button.addEventListener("click", () => viewObject(0));
+last_button.addEventListener("click", () => viewObject(objects.length - 1));
 
 /**
     Get objects and fill the array of current objects
     Makes a http GET request for json file data.json
+    Asks for certain number of items to receive, as well as sorted
+
+    CHANGE TO PHP REQUEST
+
+    php should get the objects from the json file on the server(later database)
+    with requested filters applied (name, item amt, sorting), then send back objects
+    to client side as json file.
 **/
 function get_objects(){
     httpRequest = new XMLHttpRequest();
@@ -92,6 +108,8 @@ function draw_table(){
                 label.innerHTML = "" + (objects[j + (i * num_cols)].name) + "";
                 td.appendChild(image);
                 td.appendChild(label);
+                //add an event listener for each object, on click, send object id and present the objects data in the viewer
+                td.addEventListener("click", () => viewObject(j + (i * num_cols)));
             }
 
             tr.appendChild(td);
@@ -106,6 +124,25 @@ function draw_table(){
         console.log(objects[i].name);
     }*/
 
+}
+
+function viewObject(id){
+    if (!(id < objects.length) || id < 0){
+        return;
+    }
+    childnodes = object_view.children;
+
+    childnodes[0].innerHTML = objects[id].name;
+    childnodes[1].innerHTML = "" + (id + 1) + "/" + objects.length;
+
+    //update the next and previous buttons
+    document.getElementById('next').replaceWith(document.getElementById('next').cloneNode(true));
+    document.getElementById('next').addEventListener("click", () => viewObject(id + 1));
+    document.getElementById('previous').replaceWith(document.getElementById('previous').cloneNode(true));
+    document.getElementById('previous').addEventListener("click", () => viewObject(id - 1));
+    
+    
+    object_view.style.display = "block";    //set display type so the window is visible
 }
 
 
