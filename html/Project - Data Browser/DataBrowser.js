@@ -4,6 +4,7 @@ const obj_table = document.getElementById('objTable');
 const object_view = document.getElementById('objectView');
 const first_button = document.getElementById('first');
 const last_button = document.getElementById('last');
+const close_object_view_button = document.getElementById('closeOV');
 
 const cell_width = 300;
 const cell_height = 300;
@@ -27,13 +28,22 @@ objects = [
     new myClass("e", 1),
     new myClass("f", 2),
     new myClass("g", 5),
-    new myClass("h", 12)
+    new myClass("h", 12),
+    new myClass("i", 1),
+    new myClass("j", 2),
+    new myClass("k", 5),
+    new myClass("l", 12),
+    new myClass("m", 1),
+    new myClass("n", 2),
+    new myClass("o", 5),
+    new myClass("p", 12)
     
 ];
 
 
-first_button.addEventListener("click", () => viewObject(0));
-last_button.addEventListener("click", () => viewObject(objects.length - 1));
+first_button.addEventListener("click", () => viewObject(0));    //view object in first position in object array
+last_button.addEventListener("click", () => viewObject(objects.length - 1));    //view object in last position of object array
+close_object_view_button.addEventListener("click", () => {object_view.className = "objectViewClosed"}); //close object view window by setting display type to none
 
 /**
     Get objects and fill the array of current objects
@@ -101,15 +111,17 @@ function draw_table(){
             let td = document.createElement('TD');
             if (j + (i * num_cols) < len){
                 //Individual Cells
+                let div = document.createElement('DIV');
                 let label = document.createElement('LABEL');
                 let image = document.createElement('IMG');
-                td.style.backgroundColor = "aliceblue";
+                div.className = "objTableView"; //set class for css stylesheet
                 image.src = ""; //image of object 
                 label.innerHTML = "" + (objects[j + (i * num_cols)].name) + "";
-                td.appendChild(image);
-                td.appendChild(label);
+                div.appendChild(image);
+                div.appendChild(label);
+                td.appendChild(div);
                 //add an event listener for each object, on click, send object id and present the objects data in the viewer
-                td.addEventListener("click", () => viewObject(j + (i * num_cols)));
+                div.addEventListener("click", () => viewObject(j + (i * num_cols)));
             }
 
             tr.appendChild(td);
@@ -142,7 +154,7 @@ function viewObject(id){
     document.getElementById('previous').addEventListener("click", () => viewObject(id - 1));
     
     
-    object_view.style.display = "block";    //set display type so the window is visible
+    object_view.className = "objectViewOpen";    //set class to open for css stylesheet
 }
 
 

@@ -13,10 +13,8 @@ body{
 }
 
 .table{
-    border: 1px solid black;
     overflow-y: scroll;
 }
-
 
 .objTable{
     border-collapse: separate;
@@ -29,13 +27,26 @@ body{
     text-align: center;
 }
 
-.objTable td:hover{
-    transition: 1s ease-out;
-    filter:brightness(.8);
-    
+/*Object Presentation inside the Table, Td.*/
+.objTableView{
+    margin : 5px;
+    height : 95%;
+    width : 95%;
+    background-color : beige;
+    border :1px solid beige;
+    border-radius : 30px;
+}
+/*Animation for hovering over the objects*/
+.objTableView:hover{
+    transition: .1s;
+    border: 1px solid brown;
+    transform: rotate(1deg);
+    box-shadow: 5px 5px lightblue;
 }
 
-.objectView{
+/*Object presentation for detailed information, opens when objects in table are clicked*/
+.objectViewOpen{
+    display: block;
     height: 75%;
     width: 50%;
     position:absolute;
@@ -44,9 +55,13 @@ body{
     bottom: 10px;
     right: 10px;
     z-index: 1;
-    background-color: beige;
-    border: 1px solid whitesmoke;
+    background-color: rgb(204, 240, 237);
+    border: 3px solid rgb(184, 235, 230);
     text-align: center;
     border-radius: 10px;
+}
+
+/*Class to not display anything when object view is closed*/
+.objectViewClosed{
     display: none;
 }
