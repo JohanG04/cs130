@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Project - Wordle</title>
+        <meta charset="utf-8">
+
+        <link rel="stylesheet" type="text/css" href="Wordle.css">
+    </head>
+
+    <body id="body">
+        <div name="title">
+            <h1 class="gamename">Wordle</h1>
+        </div>
+        <div name="boarddiv">
+            <!--Main Board containing the previous guesses-->
+            <table>
+                <tbody id="board" class="board">
+                </tbody>
+            </table>
+        </div>
+
+        <div name="inputdiv">
+            <div name="keyboardrow1" class="keyboardrow">
+                <input type="button" id="qbutton" class="keyboard" value="q">
+                <input type="button" id="wbutton" class="keyboard" value="w">
+                <input type="button" id="ebutton" class="keyboard" value="e">
+                <input type="button" id="rbutton" class="keyboard" value="r">
+                <input type="button" id="tbutton" class="keyboard" value="t">
+                <input type="button" id="ybutton" class="keyboard" value="y">
+                <input type="button" id="ubutton" class="keyboard" value="u">
+                <input type="button" id="ibutton" class="keyboard" value="i">
+                <input type="button" id="obutton" class="keyboard" value="o">
+                <input type="button" id="pbutton" class="keyboard" value="p">
+            </div>
+            <div name="keyboardrow2" class="keyboardrow">
+                <input type="button" id="abutton" class="keyboard" value="a">
+                <input type="button" id="sbutton" class="keyboard" value="s">
+                <input type="button" id="dbutton" class="keyboard" value="d">
+                <input type="button" id="fbutton" class="keyboard" value="f">
+                <input type="button" id="gbutton" class="keyboard" value="g">
+                <input type="button" id="hbutton" class="keyboard" value="h">
+                <input type="button" id="jbutton" class="keyboard" value="j">
+                <input type="button" id="kbutton" class="keyboard" value="k">
+                <input type="button" id="lbutton" class="keyboard" value="l">
+            </div>
+            <div name="keyboardrow3" class="keyboardrow">
+                <input type="button" id="guess" class="guess" value="Guess">
+                <input type="button" id="zbutton" class="keyboard" value="z">
+                <input type="button" id="xbutton" class="keyboard" value="x">
+                <input type="button" id="cbutton" class="keyboard" value="c">
+                <input type="button" id="vbutton" class="keyboard" value="v">
+                <input type="button" id="bbutton" class="keyboard" value="b">
+                <input type="button" id="nbutton" class="keyboard" value="n">
+                <input type="button" id="mbutton" class="keyboard" value="m">
+                <input type="button" id="backspace" class="keyboard" value="<-">
+            </div>
+        </div>
+
+        <!--tutorial block, open at start-->
+        <div id="tutorialdiv" class="container">
+            <div class="tutorial">
+                <h2>How to Play:</h2>
+
+                <input type="button" id="tutstart" value="Play">
+    
+            </div>
+        </div>
+
+        <!--Results block, should start closed, but open once the game ends. Contains button to restart-->
+        <div id="resultsdiv" class="container">
+            <div class="results">
+                <h2>Results:</h2>
+                <p id="score">Won! Score: 0</p>
+                <p id="time">Time Elapsed: 0 s</p>
+
+                <input type="button" id="resstart" value="Play Again">
+            </div>
+        </div>
+
+        <script src="Wordle.js"></script>
+    </body>
+</html>
