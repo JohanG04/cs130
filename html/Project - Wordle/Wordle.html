@@ -20,7 +20,7 @@
             </table>
         </div>
 
-        <div name="inputdiv">
+        <div name="inputdiv" class="onscreenkeyboard">
             <div name="keyboardrow1" class="keyboardrow">
                 <input type="button" id="qbutton" class="keyboard" value="q">
                 <input type="button" id="wbutton" class="keyboard" value="w">
@@ -61,8 +61,18 @@
         <div id="tutorialdiv" class="container">
             <div class="tutorial">
                 <h2>How to Play:</h2>
+                <p class="gameinformation">
+                    A 5 letter word is chosen from the word list. You have 6 guesses to guess what the word is.
+                    When you make a guess the letters will turn one of three colors<br>
+                    <br>
+                    Red:    Letter is NOT in the word<br>
+                    Yellow: Letter is in the word, but in the wrong place<br>
+                    Green:  Letter is both in the word, and in the correct place<br>
+                    <br>
+                    The game ends on a correct guess, or if you run out of guesses.
+                </p>
 
-                <input type="button" id="tutstart" value="Play">
+                <input type="button" id="tutstart" value="Play" class="menubutton">
     
             </div>
         </div>
@@ -71,10 +81,13 @@
         <div id="resultsdiv" class="container">
             <div class="results">
                 <h2>Results:</h2>
-                <p id="score">Won! Score: 0</p>
+                <p class="winloss" id="winlosstext">Won!</p>
+                <p>The word was: </p>
+                <p id="theword" class="theword">The word</p>
+                <p id="score">Score: 0</p>
                 <p id="time">Time Elapsed: 0 s</p>
 
-                <input type="button" id="resstart" value="Play Again">
+                <input type="button" id="resstart" value="Play Again" class="menubutton">
             </div>
         </div>
 

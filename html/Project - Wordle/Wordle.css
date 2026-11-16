@@ -14,11 +14,23 @@ td{
     text-align: center;
 }
 
-
-.keyboardrow{
-    justify-items: center;
+.menubutton{
+    background-color: rgb(30, 30, 30);
+    padding: 5px 10px;
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    font-size:medium;
+    align-self: center;
 }
 
+.onscreenkeyboard{
+    display: grid;
+    height: 150px;
+    grid-template-rows: 50px 50px 50px;
+
+    place-items : center;
+}
 
 .keyboard{
     width: 40px;
@@ -85,6 +97,7 @@ td{
     background-color: rgb(30, 30, 30);
     border: 2px solid white;
     color: white;
+    border-radius: 10px;
 
 }
 
@@ -99,6 +112,7 @@ td{
     color: white;
     background-color: rgb(30, 30, 30);
     border: 2px solid white;
+    border-radius: 10px;
 }
 
 .container{
@@ -109,4 +123,9 @@ td{
     width: 100vw;
     height: 100vh;
     justify-content: center;
+}
+
+.theword{
+    font-weight: bolder;
+    color: darkkhaki;
 }
