@@ -24,14 +24,18 @@ body{
 .objTable td{
     width: 300px;
     height: 300px;
+    place-items: center;
     text-align: center;
 }
 
 /*Object Presentation inside the Table, Td.*/
 .objTableView{
-    margin : 5px;
+    display: grid;
+    transform: scale(95%);
+    place-items: center;
     height : 95%;
     width : 95%;
+    font-size: x-large;
     background-color : beige;
     border :1px solid beige;
     border-radius : 30px;
@@ -40,8 +44,7 @@ body{
 .objTableView:hover{
     transition: .1s;
     border: 1px solid brown;
-    transform: rotate(1deg);
-    box-shadow: 5px 5px lightblue;
+    transform: scale(100%);
 }
 
 /*Object presentation for detailed information, opens when objects in table are clicked*/

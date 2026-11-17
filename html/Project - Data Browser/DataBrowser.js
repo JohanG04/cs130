@@ -12,32 +12,35 @@ const cell_height = 300;
 addEventListener('resize', draw_table);
 
 
-class myClass{
-    constructor(name, year){
+class Villager{
+    constructor(name, icon, species, gender, personality, hobby, birthday, birthmonth, catchphrase, favsong, favsaying, style1, style2, color1, color2, version_added, name_color, bubble_color){
         this.name = name;
-        this.year = year;
+        this.icon = icon
+        this.species = species;
+        this.gender = gender;
+        this.personality = personality;
+        this.hobby = hobby;
+        this.birthday = birthday;
+        this.birthmonth = birthmonth;
+        this.catchphrase = catchphrase;
+        this.favsong = favsong;
+        this.favsaying = favsaying;
+        this.style1 = style1;
+        this.style2 = style2;
+        this.color1 = color1;
+        this.color2 = color2;
+        this.version_added = version_added;
+        this.name_color = name_color;
+        this.bubble_color = bubble_color;
 
     }
 }
 
+//1.0.0, #848484, #ffffff, cat06, Q8Qds8CMWMnXTGbqf
+
 objects = [
-    new myClass("a", 1),
-    new myClass("b", 2),
-    new myClass("c", 5),
-    new myClass("d", 12),
-    new myClass("e", 1),
-    new myClass("f", 2),
-    new myClass("g", 5),
-    new myClass("h", 12),
-    new myClass("i", 1),
-    new myClass("j", 2),
-    new myClass("k", 5),
-    new myClass("l", 12),
-    new myClass("m", 1),
-    new myClass("n", 2),
-    new myClass("o", 5),
-    new myClass("p", 12)
-    
+    new Villager("Punchy", "https://nh-cdn.catalogue.ac/NpcIcon/cat06.png", "Cat", "Male", "Lazy", "Play", 4, 11, "mrmpht", "Forest Life", "There's always more fish in the sea!", "Simple", "Simple", "Blue", "Aqua", 1.0, "#848484", "#ffffff"),
+    new Villager("Molly", "https://nh-cdn.catalogue.ac/NpcIcon/duk16.png", "Duck", "Female", "Normal", "Nature", 3, 7, "quackidee", "K.K. Ballad", "Like water off a duck's back.", "Cute", "Simple", "Yellow", "Pink", 1.0, "#fffce9", "#e8b010")
 ];
 
 
@@ -115,7 +118,9 @@ function draw_table(){
                 let label = document.createElement('LABEL');
                 let image = document.createElement('IMG');
                 div.className = "objTableView"; //set class for css stylesheet
-                image.src = ""; //image of object 
+                div.style.backgroundColor = objects[j + (i * num_cols)].bubble_color;
+                div.style.color = objects[j + (i * num_cols)].name_color;
+                image.src = objects[j + (i * num_cols)].icon; //image of object 
                 label.innerHTML = "" + (objects[j + (i * num_cols)].name) + "";
                 div.appendChild(image);
                 div.appendChild(label);
