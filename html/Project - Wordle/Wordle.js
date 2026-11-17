@@ -140,6 +140,7 @@ let game_start = false;   //if game has started
 let user_guesses = 0;
 let current_letter = 0;
 let current_guess = [];
+let check_guess = false;
 let user_score = 0;
 let start_time = 0.0;
 let end_time = 0.0;
@@ -184,7 +185,7 @@ function backspacePressed(){
 //Submit guess when user presses the ENTER button
 function submitGuess(){
     //CHECK IF WORD IS IN WORD LIST (SERVER SIDE)
-
+    
     if (user_guesses >= GUESSES){
         console.log("OUT OF GUESSES");
         return;
@@ -193,9 +194,15 @@ function submitGuess(){
         console.log("WORD NOT LONG ENOUGH");
         return;
     }
-
+    
     let thisguess = current_guess.join("").toLowerCase();   //Get user input as String, all lowercase
     
+    checkWord(thisguess);
+
+    if (check_guess == false){
+        console.log("NOT IN WORD LIST");
+        return;
+    }
     //console.log(thisguess);
 
     for (i in thisguess){
@@ -382,9 +389,27 @@ function getWord(){
     }
 }
 
-function checkWord(){
+function checkWord(userword){
     //create XML http request for checking word. Return true if it is in word list. false if not
     httpRequest = new XMLHttpRequest();
+
+    if (!httpRequest){
+        alert("Could not create http request");
+        return false;
+    }
+
+    httpRequest.onreadystatechange = checkResult;
+    httpRequest.open('GET', "Wordle.php?req=check&word=" + JSON.stringify(userword), false);
+    httpRequest.send();
+}
+
+function checkResult(){
+        if (httpRequest.readyState === XMLHttpRequest.DONE){
+        if (httpRequest.status === 200){
+            check_guess = JSON.parse(httpRequest.responseText);
+            
+        }
+    }
 }
 
 

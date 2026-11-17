@@ -28,7 +28,18 @@
     }
 
     function check_word(){
-        return;
+        $inlist = FALSE;
+        $userword = json_decode($_GET['word']);
+        $wordsfile = fopen("wordlist/5-letters.txt", 'r');
+
+        while(($line = fgets($wordsfile)) !== false){
+            if (strpos($line, $userword) !== false){
+                $inlist = TRUE;
+                break;
+            }
+        }
+
+        echo json_encode($inlist);
     }
     //exit script and return requested object
     request_type();
