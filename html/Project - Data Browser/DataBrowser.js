@@ -13,9 +13,9 @@ addEventListener('resize', draw_table);
 
 
 class Villager{
-    constructor(name, icon, species, gender, personality, hobby, birthday, birthmonth, catchphrase, favsong, favsaying, style1, style2, color1, color2, version_added, name_color, bubble_color){
+    constructor(name, id, species, gender, personality, hobby, birthday, birthmonth, catchphrase, favsong, favsaying, style1, style2, color1, color2, version_added, name_color, bubble_color, favorite){
         this.name = name;
-        this.icon = icon
+        this.id = id;
         this.species = species;
         this.gender = gender;
         this.personality = personality;
@@ -32,6 +32,7 @@ class Villager{
         this.version_added = version_added;
         this.name_color = name_color;
         this.bubble_color = bubble_color;
+        this.favorite = favorite
 
     }
 }
@@ -39,8 +40,8 @@ class Villager{
 //1.0.0, #848484, #ffffff, cat06, Q8Qds8CMWMnXTGbqf
 
 objects = [
-    new Villager("Punchy", "https://nh-cdn.catalogue.ac/NpcIcon/cat06.png", "Cat", "Male", "Lazy", "Play", 4, 11, "mrmpht", "Forest Life", "There's always more fish in the sea!", "Simple", "Simple", "Blue", "Aqua", 1.0, "#848484", "#ffffff"),
-    new Villager("Molly", "https://nh-cdn.catalogue.ac/NpcIcon/duk16.png", "Duck", "Female", "Normal", "Nature", 3, 7, "quackidee", "K.K. Ballad", "Like water off a duck's back.", "Cute", "Simple", "Yellow", "Pink", 1.0, "#fffce9", "#e8b010")
+    new Villager("Punchy", "cat06", "Cat", "Male", "Lazy", "Play", 4, 11, "mrmpht", "Forest Life", "There's always more fish in the sea!", "Simple", "Simple", "Blue", "Aqua", 1.0, "#848484", "#ffffff", 0),
+    new Villager("Molly", "duk16", "Duck", "Female", "Normal", "Nature", 3, 7, "quackidee", "K.K. Ballad", "Like water off a duck's back.", "Cute", "Simple", "Yellow", "Pink", 1.0, "#fffce9", "#e8b010", 0)
 ];
 
 
@@ -120,7 +121,8 @@ function draw_table(){
                 div.className = "objTableView"; //set class for css stylesheet
                 div.style.backgroundColor = objects[j + (i * num_cols)].bubble_color;
                 div.style.color = objects[j + (i * num_cols)].name_color;
-                image.src = objects[j + (i * num_cols)].icon; //image of object 
+                image.src = "images/NpcIcon/" + objects[j + (i * num_cols)].id + ".png"; //Icon
+                //image.src = "images/NpcPhotos/NpcNml" +  objects[j + (i * num_cols)].id; //image of object 
                 label.innerHTML = "" + (objects[j + (i * num_cols)].name) + "";
                 div.appendChild(image);
                 div.appendChild(label);
